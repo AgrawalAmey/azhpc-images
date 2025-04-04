@@ -24,7 +24,7 @@ $UBUNTU_COMMON_DIR/remove_unused_packages.sh
 ./install_utils.sh
 
 # install Lustre client
-$UBUNTU_COMMON_DIR/install_lustre_client.sh
+#$UBUNTU_COMMON_DIR/install_lustre_client.sh
 
 # install DOCA OFED
 $UBUNTU_COMMON_DIR/install_doca.sh
@@ -78,7 +78,7 @@ $COMMON_DIR/install_monitoring_tools.sh
 $COMMON_DIR/install_amd_libs.sh
 
 # install Azure/NHC Health Checks
-$COMMON_DIR/install_health_checks.sh
+#$COMMON_DIR/install_health_checks.sh
 
 # disable cloud-init
 $UBUNTU_COMMON_DIR/disable_cloudinit.sh
