@@ -95,3 +95,23 @@ $COMMON_DIR/setup_sku_customizations.sh
 # clear history
 # Uncomment the line below if you are running this on a VM
 # $COMMON_DIR/clear_history.sh
+
+
+# Custom code -- fix nvidia drivers
+sudo apt remove "nvidia*" -y
+sudo apt remove "cuda*" -y
+sudo apt autoremove -y
+
+# now install nvidia driver
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyrincuda-toolkit-12-6udo apt-get update
+sudo apt-get -y install cuda-toolkit-12-6
+sudo apt install nvidia-open nvidia-fabricmanager-570 nvidia-container-toolkit
+
+# install terminal customizations
+curl https://gist.githubusercontent.com/AgrawalAmey/8bd8474d0cffda80aa4fdaab3b0478e1/raw/a6d220d886bec21b85acdee0f88e4f7583a1d9eb/auto_node_setup.sh | bash
+
+# mount nfs
+sudo mkdir -p /mount/mnemosyne-profiling
+echo "hqiuscus.file.core.windows.net:/hqiuscus/mnemosyne-profiling /mount/mnemosyne-profiling nfs vers=4,minorversion=1,sec=sys,nconnect=4,_netdev 0 0" | sudo tee -a /etc/fstab
+sudo mount -a
